@@ -16,7 +16,7 @@ jobs:
         uses: actions/setup-dotnet@v2
         with:
           dotnet-version: "6.0.x"
-          source-url: https://nuget.pkg.github.com/rockcontent/index.json
+          source-url: https://nuget.pkg.github.com/nogueiraever/index.json
         env:
           NUGET_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
 
@@ -29,4 +29,4 @@ jobs:
       - name: Publish
         run: |
           cd src/Nitro.Dotnet.Functions
-          dotnet nuget push "bin/Release/*.nupkg" -k ${{ secrets.GITHUB_TOKEN }} -s https://nuget.pkg.github.com/rockcontent/index.json --skip-duplicate
+          dotnet nuget push "bin/Release/*.nupkg" -k ${{ secrets.GITHUB_TOKEN }} -s https://nuget.pkg.github.com/nogueiraever/index.json --skip-duplicate

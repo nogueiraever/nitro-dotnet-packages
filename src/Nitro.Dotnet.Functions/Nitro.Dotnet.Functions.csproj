@@ -3,13 +3,13 @@
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
-    <VersionPrefix>1.0.1</VersionPrefix>
-    <Company>RockContent</Company>
-    <Authors>RockContent</Authors>
-    <Product>RockContent Studio3</Product>
-    <RepositoryUrl>https://github.com/rockcontent/studio-packages-functions</RepositoryUrl>
+    <PackageVersion>$([System.DateTime]::Now.ToString("yyyy.MM.dd.HHmm"))</PackageVersion>
+    <Company>Nitro</Company>
+    <Authors>Everton Nogueira</Authors>
+    <Product>Nitro Dotnet Packages</Product>
+    <RepositoryUrl>https://github.com/nogueiraever/nitro-dotnet-packages</RepositoryUrl>
     <Description>Common lambda function methods</Description>
-    <PackageProjectUrl>https://nuget.pkg.github.com/rockcontent/index.json</PackageProjectUrl>
+    <PackageProjectUrl>https://nuget.pkg.github.com/nogueiraever/index.json</PackageProjectUrl>
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
