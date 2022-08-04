@@ -1,0 +1,32 @@
+name: Build and deploy
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@main
+
+      - name: Set up .NET Core
+        uses: actions/setup-dotnet@v2
+        with:
+          dotnet-version: "6.0.x"
+          source-url: https://nuget.pkg.github.com/rockcontent/index.json
+        env:
+          NUGET_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
+
+      - name: Build with dotnet
+        run: dotnet build --configuration Release
+
+      - name: Create the Package
+        run: dotnet pack --configuration Release
+
+      - name: Publish
+        run: |
+          cd src/Nitro.Dotnet.Functions
+          dotnet nuget push "bin/Release/*.nupkg" -k ${{ secrets.GITHUB_TOKEN }} -s https://nuget.pkg.github.com/rockcontent/index.json --skip-duplicate
